@@ -225,75 +225,83 @@ footer {
     text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .container {
-        flex-wrap: wrap;
-        gap: 15px;
+burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    width: 150px;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: 0;
+        right: -50%;
+        width: 50%;
+        height: 100%;
+        background-color: #333;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 20px;
+        transition: right 0.3s ease;
+        z-index: 10;
     }
 
-    nav {
-        justify-content: center; 
+    nav.active {
+        right: 0;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .hero-image img {
-        margin-top: 20px;
-    }
-
-    .about-content {
         flex-direction: column;
-        text-align: center;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
     }
 
-    .about-text {
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    #home h2 {
-        font-size: 28px;
+    .nav-links a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: bold;
     }
 
-    #home p {
-        font-size: 16px;
+    .burger-menu {
+        display: flex;
     }
 
-    .menu-grid {
-        grid-template-columns: 1fr; 
+    .container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
-
-    input,
-    textarea,
-    button {
-        padding: 12px;
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-image img {
-        width: 250px;
-        margin-bottom: 20px;
-    }
-
-    .about-text {
-        margin-left: 0;
-        text-align: center;
-    }
-
-    #about {
-        padding: 0 5%;
-    }
-}
-
+        }
 #colored {
     color: white;
 }
